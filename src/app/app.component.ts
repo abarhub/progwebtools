@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Base64Service} from "./services/base64.service";
+import {YamlService} from "./services/yaml.service";
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,13 @@ import {Base64Service} from "./services/base64.service";
 })
 export class AppComponent implements OnInit {
   title = 'progwebtools';
-  langages: string[] = ["json", "str -> base64", "base64 -> str"];
+  langages: string[] = ["json", "str -> base64", "base64 -> str", "yml -> properties"];
   texte: string = '';
   texteResultat: string = '';
   langageSelectionne: string = '';
   registrationForm: FormGroup = this.fb.group({texte: ['']});
 
-  constructor(public fb: FormBuilder, private base64Service: Base64Service) {
+  constructor(public fb: FormBuilder, private base64Service: Base64Service, private yamlService:YamlService) {
   }
 
   formate() {
@@ -32,6 +33,10 @@ export class AppComponent implements OnInit {
       } else if (langageSelect == this.langages[2]) {
         let s = this.registrationForm.get('texte')?.value;
         s = this.base64Service.fromBase64(s);
+        this.texteResultat = s;
+      } else if(langageSelect == this.langages[3]){
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.yamlService.toProperties(s);
         this.texteResultat = s;
       }
     }
