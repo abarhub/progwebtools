@@ -14,7 +14,9 @@ export class AppComponent implements OnInit {
   texte: string = '';
   texteResultat: string = '';
   langageSelectionne: string = '';
-  registrationForm: FormGroup = this.fb.group({texte: ['']});
+  registrationForm: FormGroup = this.fb.group({texte: [''], texteResultat:['']});
+  codeForm: FormGroup = this.fb.group({srccodejavascript: ['']});
+  resultatCode:string[]=[];
 
   constructor(public fb: FormBuilder, private base64Service: Base64Service, private yamlService: YamlService) {
   }
@@ -52,5 +54,29 @@ export class AppComponent implements OnInit {
       langageSelectionne: [this.langages[0]],
       texte: [texte]
     });
+
+    const s='let i=1;\n' +
+      'console.log(\'coucou\');\n' +
+      'return i;';
+    this.codeForm.get('srccodejavascript')?.setValue(s);
+  }
+
+  executeJavascript() {
+    let code = this.codeForm.get('srccodejavascript')?.value;
+    if(code){
+     const tmp=Function('"use strict";' +
+     /*'{\n' +
+       '  const log = console.log.bind(console)\n' +
+       '  console.log = (...args) => {\n' +
+       '    log(\'My Console!!!\')\n' +
+       '    log(...args)\n' +
+       '  }\n' +
+       '}'+*/
+       code);
+     console.log('execution...');
+     const res=tmp();
+      console.log('execution ok. resultat:'+res);
+      this.resultatCode.push(res);
+    }
   }
 }

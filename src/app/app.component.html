@@ -531,4 +531,15 @@
 <button (click)="formate()">Formattage</button>
 </form>
 
+<hr/>
+
+<form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+
+  <textarea formControlName="srccodejavascript">
+
+</textarea>
+  <div id="resultatCode"><span *ngFor="let ligne of resultatCode">{{ligne}}<br/></span></div>
+  <button (click)="executeJavascript()">Execute</button>
+
+</form>
 
