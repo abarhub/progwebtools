@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   texteResultat: string = '';
   langageSelectionne: string = '';
   registrationForm: FormGroup = this.fb.group({texte: [''], texteResultat:['']});
-  codeForm: FormGroup = this.fb.group({srccodejavascript: ['']});
+  codeForm: FormGroup = this.fb.group({srccodejavascript: [''],srccodejavascript2:['']});
   resultatCode:string[]=[];
 
   constructor(public fb: FormBuilder, private base64Service: Base64Service, private yamlService: YamlService) {
@@ -57,8 +57,12 @@ export class AppComponent implements OnInit {
 
     const s='let i=1;\n' +
       'console.log(\'coucou\');\n' +
+      'for(let j=0;j<5;j++){\n' +
+      '  i=i+1;\n' +
+      '}\n' +
       'return i;';
     this.codeForm.get('srccodejavascript')?.setValue(s);
+    this.codeForm.get('srccodejavascript2')?.setValue(s);
   }
 
   executeJavascript() {
