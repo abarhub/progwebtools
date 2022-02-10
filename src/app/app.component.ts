@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   langageSelectionne: string = '';
   registrationForm: FormGroup = this.fb.group({texte: ['']});
 
-  constructor(public fb: FormBuilder, private base64Service: Base64Service, private yamlService:YamlService) {
+  constructor(public fb: FormBuilder, private base64Service: Base64Service, private yamlService: YamlService) {
   }
 
   formate() {
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
         let s = this.registrationForm.get('texte')?.value;
         s = this.base64Service.fromBase64(s);
         this.texteResultat = s;
-      } else if(langageSelect == this.langages[3]){
+      } else if (langageSelect == this.langages[3]) {
         let s = this.registrationForm.get('texte')?.value;
         s = this.yamlService.toProperties(s);
         this.texteResultat = s;

@@ -6,21 +6,21 @@ import {load} from "js-yaml";
 })
 export class YamlService {
 
-  toProperties(s:string):string{
+  toProperties(s: string): string {
 
     const yaml = load(s);
-    console.log('yml',yaml);
+    console.log('yml', yaml);
 
-    if(yaml) {
+    if (yaml) {
 
-      let yaml2=yaml as any;
+      let yaml2 = yaml as any;
       for (let key in yaml2) {
-        console.log("yaml key/value",key,yaml2[key]);
+        console.log("yaml key/value", key, yaml2[key]);
       }
 
-      let res=this.conv(yaml2,'');
+      let res = this.conv(yaml2, '');
 
-      console.log('res',res);
+      console.log('res', res);
 
       return res;
     }
@@ -28,29 +28,29 @@ export class YamlService {
     return '';
   }
 
-  private conv(obj:any, debut:string): string{
-    let res="";
+  private conv(obj: any, debut: string): string {
+    let res = "";
     let debutStr;
-    if(debut&&debut.length>0){
-      debutStr=debut+'.';
+    if (debut && debut.length > 0) {
+      debutStr = debut + '.';
     } else {
-      debutStr='';
+      debutStr = '';
     }
     for (let key in obj) {
-      let value=obj[key];
-      let ligne='';
-      if(value===''){
-        ligne=debutStr+key+'=';
-      } else if(typeof value === 'string' || value instanceof String) {
-        ligne=debutStr+key+'='+value;
-      } else if(this.isObject(value)){
-        let s=this.conv(value,debutStr+key);
-        if(s){
-          ligne=s;
+      let value = obj[key];
+      let ligne = '';
+      if (value === '') {
+        ligne = debutStr + key + '=';
+      } else if (typeof value === 'string' || value instanceof String) {
+        ligne = debutStr + key + '=' + value;
+      } else if (this.isObject(value)) {
+        let s = this.conv(value, debutStr + key);
+        if (s) {
+          ligne = s;
         }
       }
 
-      if(ligne) {
+      if (ligne) {
         res += ligne + '\n';
       }
       //console.log("yaml key/value",key,yaml2[key]);
@@ -58,9 +58,9 @@ export class YamlService {
     return res;
   }
 
-  private isObject(obj:any){
+  private isObject(obj: any) {
     return typeof obj === 'object' &&
-    !Array.isArray(obj) &&
-    obj !== null;
+      !Array.isArray(obj) &&
+      obj !== null;
   }
 }
