@@ -7,6 +7,7 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {CodemirrorModule} from "@ctrl/ngx-codemirror";
     MatSliderModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    CodemirrorModule
+    CodemirrorModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

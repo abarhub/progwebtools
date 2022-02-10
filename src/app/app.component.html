@@ -552,6 +552,20 @@
   <div id="resultatCode"><span *ngFor="let ligne of resultatCode">{{ligne}}<br/></span></div>
   <button (click)="executeJavascript()">Execute</button>
 
+  <hr/>
+  <button (click)="nouvelleNote()">Nouvelle Note</button>
+
+  <mat-tab-group>
+    <mat-tab *ngFor="let titre of titreBrouillons" [label]="titre">
+      <textarea >
+
+</textarea>
+    </mat-tab>
+  </mat-tab-group>
+
+  <hr/>
+
+
 
 </form>
 

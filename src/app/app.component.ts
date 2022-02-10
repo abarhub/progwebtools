@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   registrationForm: FormGroup = this.fb.group({texte: [''], texteResultat:['']});
   codeForm: FormGroup = this.fb.group({srccodejavascript: [''],srccodejavascript2:['']});
   resultatCode:string[]=[];
+  titreBrouillons:string[]=['note1'];
 
   constructor(public fb: FormBuilder, private base64Service: Base64Service, private yamlService: YamlService) {
   }
@@ -82,5 +83,9 @@ export class AppComponent implements OnInit {
       console.log('execution ok. resultat:'+res);
       this.resultatCode.push(res);
     }
+  }
+
+  nouvelleNote() {
+    this.titreBrouillons.push('Note '+(this.titreBrouillons.length+1));
   }
 }
