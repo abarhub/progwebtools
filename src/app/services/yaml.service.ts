@@ -39,9 +39,9 @@ export class YamlService {
     for (let key in obj) {
       let value = obj[key];
       let ligne = '';
-      if (value === '') {
+      if (value === '' || value === null) {
         ligne = debutStr + key + '=';
-      } else if (typeof value === 'string' || value instanceof String) {
+      } else if (typeof value === 'string' || value instanceof String || typeof value === 'number') {
         ligne = debutStr + key + '=' + value;
       } else if (this.isObject(value)) {
         let s = this.conv(value, debutStr + key);
@@ -51,9 +51,11 @@ export class YamlService {
       }
 
       if (ligne) {
-        res += ligne + '\n';
+        res += ligne;
+        if (!res.endsWith('\n')) {
+          res += '\n';
+        }
       }
-      //console.log("yaml key/value",key,yaml2[key]);
     }
     return res;
   }
