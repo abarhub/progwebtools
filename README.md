@@ -1,5 +1,7 @@
 # Progwebtools
 
+![example workflow](https://github.com/abarhub/progwebtools/actions/workflows/nodejs.yml/badge.svg)
+
 [site](https://abarhub.github.io/progwebtools/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
