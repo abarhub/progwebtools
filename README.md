@@ -1,6 +1,6 @@
 # Progwebtools
 
-![example workflow](https://github.com/abarhub/progwebtools/actions/workflows/nodejs.yml/badge.svg)
+![example workflow](https://github.com/abarhub/progwebtools/actions/workflows/node.js.yml/badge.svg?branch=master)
 
 [site](https://abarhub.github.io/progwebtools/)
 
