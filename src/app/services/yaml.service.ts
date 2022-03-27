@@ -41,7 +41,7 @@ export class YamlService {
       let ligne = '';
       if (value === '' || value === null) {
         ligne = debutStr + key + '=';
-      } else if (typeof value === 'string' || value instanceof String || typeof value === 'number') {
+      } else if (typeof value === 'string' || value instanceof String || typeof value === 'number' || typeof value === 'boolean') {
         ligne = debutStr + key + '=' + value;
       } else if (this.isObject(value)) {
         let s = this.conv(value, debutStr + key);

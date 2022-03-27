@@ -66,4 +66,10 @@ describe('Test YamlService', () => {
     yamlService = new YamlService();
     expect(yamlService.toProperties("key1: aa\n# comment\nkey2: bbb # comment 2\nkey3: ccc")).toBe('key1=aa\nkey2=bbb\nkey3=ccc\n');
   });
+
+  it('simple test with true/false', () => {
+    yamlService = new YamlService();
+    expect(yamlService.toProperties("key1: true\nkey2: false\nkey3: abc")).toBe('key1=true\nkey2=false\nkey3=abc\n');
+  });
+
 });
