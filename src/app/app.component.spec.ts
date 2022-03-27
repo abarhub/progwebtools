@@ -1,9 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserModule} from "@angular/platform-browser";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {CodemirrorModule} from "@ctrl/ngx-codemirror";
+import {MatTabsModule} from "@angular/material/tabs";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatSliderModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        CodemirrorModule,
+        MatTabsModule
+      ],
       declarations: [
         AppComponent
       ],
@@ -26,6 +42,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('progwebtools app is running!');
+    expect(compiled.querySelector('h1')?.textContent).toContain('progwebtools');
   });
 });
