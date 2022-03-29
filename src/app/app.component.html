@@ -1,54 +1,38 @@
 <h1>{{title}}</h1>
 
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-<select formControlName="langageSelectionne">
-  <option *ngFor="let langage of langages" [value]="langage">{{langage}}</option>
-</select>
-<textarea formControlName="texte">
 
-</textarea>
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/conversion">
+    <mat-icon>dialpad</mat-icon>
+    <span>Conversion</span>
+  </button>
+  <button mat-menu-item routerLink="/code">
+    <mat-icon>voicemail</mat-icon>
+    <span>code</span>
+  </button>
+  <button mat-menu-item routerLink="/notes">
+    <mat-icon>notifications_off</mat-icon>
+    <span>bloc note</span>
+  </button>
+</mat-menu>
 
-<textarea [value]="texteResultat" readonly>
-
-</textarea>
-<button (click)="formate()">Formattage</button>
-</form>
 
 <hr/>
 
-<form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+<hr/>
 
-<!--  <textarea formControlName="srccodejavascript">-->
-
-<!--</textarea>-->
-<div>
-  <ngx-codemirror
-    formControlName="srccodejavascript"
-    [options]="{
-    lineNumbers: true,
-    theme: 'material',
-    mode: 'javascript'
-  }"
-  ></ngx-codemirror>
-</div>
-
-  <div id="resultatCode"><span *ngFor="let ligne of resultatCode">{{ligne}}<br/></span></div>
-  <button (click)="executeJavascript()">Execute</button>
 
   <hr/>
-  <button (click)="nouvelleNote()">Nouvelle Note</button>
-
-  <mat-tab-group>
-    <mat-tab *ngFor="let titre of titreBrouillons" [label]="titre">
-      <textarea >
-
-</textarea>
-    </mat-tab>
-  </mat-tab-group>
 
   <hr/>
 
 
 
-</form>
+
+<hr/>
+
+<router-outlet></router-outlet>
 

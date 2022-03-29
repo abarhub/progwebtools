@@ -1,0 +1,15 @@
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <select formControlName="langageSelectionne">
+    <option *ngFor="let langage of langages" [value]="langage">{{langage}}</option>
+  </select>
+  <textarea formControlName="texte">
+
+</textarea>
+
+  <textarea [value]="texteResultat" readonly>
+
+</textarea>
+  <button (click)="formate()">Formattage</button>
+</form>
+
