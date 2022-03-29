@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CodeComponent } from './code.component';
+import {CommonModule} from "@angular/common";
+import {CodeRoutingModule} from "../code-routing.module";
+import {CodemirrorModule} from "@ctrl/ngx-codemirror";
+import {ReactiveFormsModule} from "@angular/forms";
 
 describe('CodeComponent', () => {
   let component: CodeComponent;
@@ -8,7 +12,13 @@ describe('CodeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CodeComponent ]
+      declarations: [ CodeComponent ],
+      imports: [
+        CommonModule,
+        CodeRoutingModule,
+        CodemirrorModule,
+        ReactiveFormsModule
+      ]
     })
     .compileComponents();
   });

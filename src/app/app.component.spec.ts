@@ -7,6 +7,9 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -18,7 +21,10 @@ describe('AppComponent', () => {
         MatFormFieldModule,
         ReactiveFormsModule,
         CodemirrorModule,
-        MatTabsModule
+        MatTabsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatMenuModule,
       ],
       declarations: [
         AppComponent

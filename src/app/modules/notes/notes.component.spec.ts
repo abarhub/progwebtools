@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotesComponent } from './notes.component';
+import {CommonModule} from "@angular/common";
+import {NotesRoutingModule} from "./notes-routing.module";
+import {MatTabsModule} from "@angular/material/tabs";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('NotesComponent', () => {
   let component: NotesComponent;
@@ -8,7 +12,13 @@ describe('NotesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotesComponent ]
+      declarations: [ NotesComponent ],
+      imports: [
+        CommonModule,
+        NotesRoutingModule,
+        MatTabsModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   });
