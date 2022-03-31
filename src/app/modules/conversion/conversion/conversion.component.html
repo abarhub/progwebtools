@@ -1,15 +1,38 @@
-
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-  <select formControlName="langageSelectionne">
-    <option *ngFor="let langage of langages" [value]="langage">{{langage}}</option>
-  </select>
-  <textarea formControlName="texte">
 
-</textarea>
+  <div class="container">
 
-  <textarea [value]="texteResultat" readonly>
+    <div class="container2">
 
-</textarea>
-  <button (click)="formate()">Formattage</button>
+      <div class="div-text-area">
+
+      </div>
+
+      <div class="div-text-area">
+        <textarea formControlName="texte" class="style-text-area"></textarea>
+      </div>
+
+      <div class="div-text-area">
+        <textarea [value]="texteResultat" readonly class="style-text-area"></textarea>
+      </div>
+
+      <div class="div-text-area">
+
+      </div>
+
+    </div>
+
+    <div class="container2">
+
+      <select formControlName="langageSelectionne">
+        <option *ngFor="let langage of langages" [value]="langage">{{langage}}</option>
+      </select>
+
+      <button (click)="formate()">Formattage</button>
+
+    </div>
+
+  </div>
+
 </form>
 
