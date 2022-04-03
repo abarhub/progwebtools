@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { NotesRoutingModule } from './notes-routing.module';
 import { NotesComponent } from './notes.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import {CodemirrorModule} from "@ctrl/ngx-codemirror";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import {MatTabsModule} from "@angular/material/tabs";
   imports: [
     CommonModule,
     NotesRoutingModule,
-    MatTabsModule
+    MatTabsModule,
+    CodemirrorModule,
+    ReactiveFormsModule
   ]
 })
 export class NotesModule { }

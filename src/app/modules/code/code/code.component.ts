@@ -30,13 +30,6 @@ export class CodeComponent implements OnInit, PageInterface {
     let code = this.codeForm.get('srccodejavascript')?.value;
     if(code){
       const tmp=Function('"use strict";' +
-        /*'{\n' +
-          '  const log = console.log.bind(console)\n' +
-          '  console.log = (...args) => {\n' +
-          '    log(\'My Console!!!\')\n' +
-          '    log(...args)\n' +
-          '  }\n' +
-          '}'+*/
         code);
       console.log('execution...');
       const res=tmp();
