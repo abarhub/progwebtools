@@ -8,15 +8,9 @@ import {PageInterface} from "../entity/page.interface";
 })
 export class NotesComponent implements OnInit, PageInterface {
 
-  titreBrouillons:string[]=['note1'];
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  nouvelleNote() {
-    this.titreBrouillons.push('Note '+(this.titreBrouillons.length+1));
   }
 
 }

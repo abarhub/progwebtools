@@ -1,9 +1,7 @@
 
 <form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
 
-  <!--  <textarea formControlName="srccodejavascript">-->
-
-  <!--</textarea>-->
+  <div>
   <div>
     <ngx-codemirror
       formControlName="srccodejavascript"
@@ -15,8 +13,14 @@
     ></ngx-codemirror>
   </div>
 
-  <div id="resultatCode"><span *ngFor="let ligne of resultatCode">{{ligne}}<br/></span></div>
-  <button (click)="executeJavascript()">Execute</button>
+  </div>
 
+  <div id="resultatCode"><span *ngFor="let ligne of resultatCode">{{ligne}}<br/></span></div>
+  <section>
+    <div class="example-button-row">
+  <button (click)="executeJavascript()" mat-raised-button>Execute</button>
+  <button (click)="videConsole()" mat-raised-button>Vide la console</button>
+    </div>
+  </section>
 
 </form>

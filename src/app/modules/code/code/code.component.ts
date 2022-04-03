@@ -45,8 +45,11 @@ export class CodeComponent implements OnInit, PageInterface {
     }
   }
 
-  onSubmit() {
+  onSubmit(): void {
 
   }
 
+  videConsole(): void {
+    this.resultatCode=[];
+  }
 }
