@@ -13,20 +13,22 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {RouterModule} from "@angular/router";
+import {TabModule} from "./modules/tab/tab.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    RouterModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatMenuModule,
+        RouterModule,
+        TabModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

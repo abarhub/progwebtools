@@ -8,14 +8,17 @@ import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
-  declarations: [
-    CodeComponent
-  ],
-  imports: [
-    CommonModule,
-    CodeRoutingModule,
-    CodemirrorModule,
-    ReactiveFormsModule
-  ]
+    declarations: [
+        CodeComponent
+    ],
+    exports: [
+        CodeComponent
+    ],
+    imports: [
+        CommonModule,
+        CodeRoutingModule,
+        CodemirrorModule,
+        ReactiveFormsModule
+    ]
 })
 export class CodeModule { }

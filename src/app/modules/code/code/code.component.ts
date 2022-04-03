@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {PageInterface} from "../../entity/page.interface";
 
 @Component({
   selector: 'app-code',
   templateUrl: './code.component.html',
   styleUrls: ['./code.component.css']
 })
-export class CodeComponent implements OnInit {
+export class CodeComponent implements OnInit, PageInterface {
 
   codeForm: FormGroup = this.fb.group({srccodejavascript: [''],srccodejavascript2:['']});
   resultatCode:string[]=[];

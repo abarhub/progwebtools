@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Base64Service} from "../../../services/base64.service";
 import {YamlService} from "../../../services/yaml.service";
+import {PageInterface} from "../../entity/page.interface";
 
 @Component({
   selector: 'app-conversion',
   templateUrl: './conversion.component.html',
   styleUrls: ['./conversion.component.css']
 })
-export class ConversionComponent implements OnInit {
+export class ConversionComponent implements OnInit, PageInterface {
 
   langages: string[] = ["json", "str -> base64", "base64 -> str", "yml -> properties"];
   registrationForm: FormGroup = this.fb.group({texte: [''], texteResultat:['']});

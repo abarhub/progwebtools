@@ -1,23 +1,23 @@
 <h1>{{title}}</h1>
 
-
 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
   <mat-icon>menu</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/conversion">
+  <button mat-menu-item (click)="addNewPage(PageEnum.Conversion)">
     <mat-icon>dialpad</mat-icon>
     <span>Conversion</span>
   </button>
-  <button mat-menu-item routerLink="/code">
+  <button mat-menu-item (click)="addNewPage(PageEnum.Code)">
     <mat-icon>voicemail</mat-icon>
     <span>code</span>
   </button>
-  <button mat-menu-item routerLink="/notes">
+  <button mat-menu-item (click)="addNewPage(PageEnum.Notes)">
     <mat-icon>notifications_off</mat-icon>
     <span>bloc note</span>
   </button>
 </mat-menu>
 
-<router-outlet></router-outlet>
+
+<app-tab [addNewTab]="addNewTabSubject"></app-tab>
 

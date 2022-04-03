@@ -10,10 +10,13 @@ import {MatTabsModule} from "@angular/material/tabs";
   declarations: [
     NotesComponent
   ],
-    imports: [
-        CommonModule,
-        NotesRoutingModule,
-        MatTabsModule
-    ]
+  exports: [
+    NotesComponent
+  ],
+  imports: [
+    CommonModule,
+    NotesRoutingModule,
+    MatTabsModule
+  ]
 })
 export class NotesModule { }

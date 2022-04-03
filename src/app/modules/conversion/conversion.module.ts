@@ -7,13 +7,16 @@ import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
-  declarations: [
-    ConversionComponent
-  ],
-  imports: [
-    CommonModule,
-    ConversionRoutingModule,
-    ReactiveFormsModule
-  ]
+    declarations: [
+        ConversionComponent
+    ],
+    exports: [
+        ConversionComponent
+    ],
+    imports: [
+        CommonModule,
+        ConversionRoutingModule,
+        ReactiveFormsModule
+    ]
 })
 export class ConversionModule { }

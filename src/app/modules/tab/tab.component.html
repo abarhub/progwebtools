@@ -1,0 +1,15 @@
+<mat-tab-group>
+  <mat-tab *ngFor="let page of tabListName" [label]="page.titre">
+
+      <div [ngSwitch]="page.typePage">
+
+        <app-conversion *ngSwitchCase="PageEnum.Conversion"></app-conversion>
+
+        <app-code *ngSwitchCase="PageEnum.Code"></app-code>
+
+        <app-notes *ngSwitchCase="PageEnum.Notes"></app-notes>
+
+      </div>
+
+  </mat-tab>
+</mat-tab-group>
