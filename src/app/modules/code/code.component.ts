@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {PageInterface} from "../../entity/page.interface";
+import {PageInterface} from "../entity/page.interface";
 
 @Component({
   selector: 'app-code',

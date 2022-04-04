@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {Base64Service} from "../../../services/base64.service";
-import {YamlService} from "../../../services/yaml.service";
-import {PageInterface} from "../../entity/page.interface";
+import {Base64Service} from "../../services/base64.service";
+import {YamlService} from "../../services/yaml.service";
+import {PageInterface} from "../entity/page.interface";
 
 @Component({
   selector: 'app-conversion',

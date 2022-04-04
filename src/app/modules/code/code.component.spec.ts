@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CodeComponent } from './code.component';
 import {CommonModule} from "@angular/common";
-import {CodeRoutingModule} from "../code-routing.module";
+import {CodeRoutingModule} from "./code-routing.module";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {ReactiveFormsModule} from "@angular/forms";
 

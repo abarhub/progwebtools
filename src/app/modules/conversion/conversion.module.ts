@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ConversionRoutingModule } from './conversion-routing.module';
-import { ConversionComponent } from './conversion/conversion.component';
+import { ConversionComponent } from './conversion.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatGridListModule} from "@angular/material/grid-list";
 

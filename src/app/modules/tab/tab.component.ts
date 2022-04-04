@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Subject} from "rxjs";
 import {PageEnum} from "../entity/page.enum";
 import {PageInterface} from "../entity/page.interface";
-import {ConversionComponent} from "../conversion/conversion/conversion.component";
+import {ConversionComponent} from "../conversion/conversion.component";
 import {PageModel} from "../entity/page.model";
 
 @Component({
