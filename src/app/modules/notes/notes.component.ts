@@ -9,12 +9,23 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class NotesComponent implements OnInit, PageInterface {
 
-  langages: string[]=['','javascript', 'xml', 'htmlmixed', 'java', 'sql', 'markdown'];
-  themes: string[]=['material','default', 'dracula'];
+  langages: string[]=['null','javascript', 'xml', 'htmlmixed', 'java', 'sql', 'markdown'];
+  themes: string[]=['material','default', 'dracula', 'idea'];
   mode: string='javascript';
-  theme: string='material';
+  theme: string='default';
+  codeMirrorOptions: any = {
+    theme: 'default',
+    mode: 'javascript',
+    lineNumbers: true,
+    lineWrapping: true,
+    //foldGutter: true,
+    //gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter', 'CodeMirror-lint-markers'],
+    //autoCloseBrackets: true,
+    //matchBrackets: true,
+    //lint: true
+  };
 
-  noteForm: FormGroup = this.fb.group({texte: [''], langageSelectionne: [''], theme: ['material']});
+  noteForm: FormGroup = this.fb.group({texte: [''], langageSelectionne: [''], theme: ['default']});
 
   constructor(public fb: FormBuilder) { }
 
@@ -29,10 +40,12 @@ export class NotesComponent implements OnInit, PageInterface {
     const code = this.noteForm.get('langageSelectionne')?.value;
     if(code){
       this.mode=code;
+      this.codeMirrorOptions.mode=this.mode;
     }
     const themeSelectionne = this.noteForm.get('themes')?.value;
     if(themeSelectionne){
       this.theme=themeSelectionne;
+      this.codeMirrorOptions.theme=this.theme;
     }
   }
 }

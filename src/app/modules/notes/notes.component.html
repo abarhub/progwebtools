@@ -1,32 +1,34 @@
-
-
 <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
-
-<div>
-
-  <ngx-codemirror
-    formControlName="texte"
-    [options]="{
-    lineNumbers: true,
-    theme: 'material',
-    mode: mode
-  }"
-  ></ngx-codemirror>
-</div>
 
   <div>
 
-    <select formControlName="langageSelectionne">
-      <option *ngFor="let langage of langages" [value]="langage">{{langage}}</option>
-    </select>
+    <div class="container">
+      <ngx-codemirror
+        formControlName="texte"
+        [options]="codeMirrorOptions"
+      ></ngx-codemirror>
+    </div>
+  </div>
 
-    <select formControlName="langageSelectionne">
-      <option *ngFor="let theme of themes" [value]="theme">{{theme}}</option>
-    </select>
+  <div>
+
+    <mat-form-field>
+      <mat-label>Langage</mat-label>
+      <mat-select formControlName="langageSelectionne">
+        <mat-option *ngFor="let langage of langages" [value]="langage">{{langage}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Theme</mat-label>
+      <mat-select formControlName="langageSelectionne">
+        <mat-option *ngFor="let theme of themes" [value]="theme">{{theme}}</mat-option>
+      </mat-select>
+    </mat-form-field>
     <section>
       <div class="example-button-row">
         <button (click)="appliquer()" mat-raised-button>Appliquer</button>
-<!--        <button (click)="videConsole()" mat-raised-button>Vide la console</button>-->
+        <!--        <button (click)="videConsole()" mat-raised-button>Vide la console</button>-->
       </div>
     </section>
   </div>
