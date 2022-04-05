@@ -1,15 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from "rxjs";
 import {PageEnum} from "../entity/page.enum";
 import {PageModel} from "../entity/page.model";
 import {MatTabChangeEvent} from "@angular/material/tabs";
+import {takeUntil} from "rxjs/operators";
 
 @Component({
   selector: 'app-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.css']
 })
-export class TabComponent implements OnInit {
+export class TabComponent implements OnInit, OnDestroy {
 
   @Input()
   addNewTab: Subject<PageEnum> = new Subject();
@@ -24,6 +25,7 @@ export class TabComponent implements OnInit {
   private compteurNote: number = 1;
   private compteur: number = 1;
   private indexSelected: number = -1;
+  private $over: Subject<void>=new Subject();
 
   public readonly PageEnum: typeof PageEnum = PageEnum;
 
@@ -31,7 +33,9 @@ export class TabComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.addNewTab.subscribe(value => {
+    this.addNewTab
+      .pipe(takeUntil(this.$over))
+      .subscribe(value => {
       const page = new PageModel();
       page.typePage = value;
       if (value === PageEnum.Conversion) {
@@ -50,7 +54,9 @@ export class TabComponent implements OnInit {
       this.tabListName.push(page);
     });
 
-    this.closeTab.subscribe(value => {
+    this.closeTab
+      .pipe(takeUntil(this.$over))
+      .subscribe(value => {
       const indexToDelete = this.indexSelected;
       if (indexToDelete >= 0 && indexToDelete < this.tabListName.length) {
         this.tabListName.splice(indexToDelete, 1);
@@ -58,9 +64,14 @@ export class TabComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.$over.next();
+  }
+
   tabChanged($event: MatTabChangeEvent): void {
     if ($event.index >= 0 && $event.index < this.tabListName.length) {
       this.indexSelected = $event.index;
     }
   }
+
 }
