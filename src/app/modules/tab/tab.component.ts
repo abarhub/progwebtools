@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Subject} from "rxjs";
 import {PageEnum} from "../entity/page.enum";
-import {PageInterface} from "../entity/page.interface";
-import {ConversionComponent} from "../conversion/conversion.component";
 import {PageModel} from "../entity/page.model";
+import {MatTabChangeEvent} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-tab',
@@ -15,9 +14,16 @@ export class TabComponent implements OnInit {
   @Input()
   addNewTab: Subject<PageEnum> = new Subject();
 
-  tabList: PageInterface[] = [];
+  @Input()
+  closeTab: Subject<void> = new Subject();
+
+  //tabList: PageInterface[] = [];
   tabListName: PageModel[] = [];
+  private compteurConversion: number = 1;
+  private compteurCode: number = 1;
+  private compteurNote: number = 1;
   private compteur: number = 1;
+  private indexSelected: number = -1;
 
   public readonly PageEnum: typeof PageEnum = PageEnum;
 
@@ -28,10 +34,33 @@ export class TabComponent implements OnInit {
     this.addNewTab.subscribe(value => {
       const page = new PageModel();
       page.typePage = value;
-      page.titre = 'Page ' + this.compteur;
-      this.compteur++;
+      if (value === PageEnum.Conversion) {
+        page.titre = 'Conv ' + this.compteurConversion;
+        this.compteurConversion++;
+      } else if (value === PageEnum.Code) {
+        page.titre = 'Code ' + this.compteurCode;
+        this.compteurCode++;
+      } else if (value === PageEnum.Notes) {
+        page.titre = 'Note ' + this.compteurNote;
+        this.compteurNote++;
+      } else {
+        page.titre = 'Page ' + this.compteur;
+        this.compteur++;
+      }
       this.tabListName.push(page);
+    });
+
+    this.closeTab.subscribe(value => {
+      const indexToDelete = this.indexSelected;
+      if (indexToDelete >= 0 && indexToDelete < this.tabListName.length) {
+        this.tabListName.splice(indexToDelete, 1);
+      }
     });
   }
 
+  tabChanged($event: MatTabChangeEvent): void {
+    if ($event.index >= 0 && $event.index < this.tabListName.length) {
+      this.indexSelected = $event.index;
+    }
+  }
 }

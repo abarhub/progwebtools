@@ -14,6 +14,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {RouterModule} from "@angular/router";
 import {TabModule} from "./modules/tab/tab.module";
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {TabModule} from "./modules/tab/tab.module";
         MatIconModule,
         MatMenuModule,
         RouterModule,
-        TabModule
+        TabModule,
+        MatDividerModule
     ],
   providers: [],
   bootstrap: [AppComponent]

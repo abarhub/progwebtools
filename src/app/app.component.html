@@ -5,19 +5,25 @@
 </button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="addNewPage(PageEnum.Conversion)">
-    <mat-icon>dialpad</mat-icon>
+    <mat-icon>trending_flat</mat-icon>
     <span>Conversion</span>
   </button>
   <button mat-menu-item (click)="addNewPage(PageEnum.Code)">
-    <mat-icon>voicemail</mat-icon>
+    <mat-icon>code</mat-icon>
     <span>code</span>
   </button>
   <button mat-menu-item (click)="addNewPage(PageEnum.Notes)">
-    <mat-icon>notifications_off</mat-icon>
+    <mat-icon>description</mat-icon>
     <span>bloc note</span>
   </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="close()">
+    <mat-icon>description</mat-icon>
+    <span>ferme</span>
+  </button>
+
 </mat-menu>
 
 
-<app-tab [addNewTab]="addNewTabSubject"></app-tab>
+<app-tab [addNewTab]="addNewTabSubject" [closeTab]="closeTabSubject"></app-tab>
 

@@ -10,6 +10,7 @@ import {PageEnum} from "./modules/entity/page.enum";
 export class AppComponent implements OnInit {
   title = 'progwebtools';
   addNewTabSubject: Subject<PageEnum> = new Subject();
+  closeTabSubject: Subject<void> = new Subject();
   public readonly PageEnum : typeof PageEnum = PageEnum;
 
   constructor() {
@@ -27,4 +28,7 @@ export class AppComponent implements OnInit {
     this.addNewTabSubject.next(page);
   }
 
+  close() {
+    this.closeTabSubject.next();
+  }
 }
