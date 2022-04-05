@@ -24,8 +24,9 @@ export class TabComponent implements OnInit, OnDestroy {
   private compteurCode: number = 1;
   private compteurNote: number = 1;
   private compteur: number = 1;
+  private noid: number = 1;
   private indexSelected: number = -1;
-  private $over: Subject<void>=new Subject();
+  private $over: Subject<void> = new Subject();
 
   public readonly PageEnum: typeof PageEnum = PageEnum;
 
@@ -36,32 +37,34 @@ export class TabComponent implements OnInit, OnDestroy {
     this.addNewTab
       .pipe(takeUntil(this.$over))
       .subscribe(value => {
-      const page = new PageModel();
-      page.typePage = value;
-      if (value === PageEnum.Conversion) {
-        page.titre = 'Conv ' + this.compteurConversion;
-        this.compteurConversion++;
-      } else if (value === PageEnum.Code) {
-        page.titre = 'Code ' + this.compteurCode;
-        this.compteurCode++;
-      } else if (value === PageEnum.Notes) {
-        page.titre = 'Note ' + this.compteurNote;
-        this.compteurNote++;
-      } else {
-        page.titre = 'Page ' + this.compteur;
-        this.compteur++;
-      }
-      this.tabListName.push(page);
-    });
+        const page = new PageModel();
+        page.typePage = value;
+        page.id = this.noid;
+        this.noid++;
+        if (value === PageEnum.Conversion) {
+          page.titre = 'Conv ' + this.compteurConversion;
+          this.compteurConversion++;
+        } else if (value === PageEnum.Code) {
+          page.titre = 'Code ' + this.compteurCode;
+          this.compteurCode++;
+        } else if (value === PageEnum.Notes) {
+          page.titre = 'Note ' + this.compteurNote;
+          this.compteurNote++;
+        } else {
+          page.titre = 'Page ' + this.compteur;
+          this.compteur++;
+        }
+        this.tabListName.push(page);
+      });
 
     this.closeTab
       .pipe(takeUntil(this.$over))
       .subscribe(value => {
-      const indexToDelete = this.indexSelected;
-      if (indexToDelete >= 0 && indexToDelete < this.tabListName.length) {
-        this.tabListName.splice(indexToDelete, 1);
-      }
-    });
+        const indexToDelete = this.indexSelected;
+        if (indexToDelete >= 0 && indexToDelete < this.tabListName.length) {
+          this.tabListName.splice(indexToDelete, 1);
+        }
+      });
   }
 
   ngOnDestroy(): void {

@@ -11,8 +11,13 @@ export class CodeComponent implements OnInit, PageInterface {
 
   codeForm: FormGroup = this.fb.group({srccodejavascript: [''],srccodejavascript2:['']});
   resultatCode:string[]=[];
+  static noDernier:number=1;
+  no:number=0;
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: FormBuilder) {
+    this.no=CodeComponent.noDernier;
+    CodeComponent.noDernier++;
+  }
 
   ngOnInit(): void {
 
@@ -23,7 +28,7 @@ export class CodeComponent implements OnInit, PageInterface {
       '}\n' +
       'return i;';
     this.codeForm.get('srccodejavascript')?.setValue(s);
-    this.codeForm.get('srccodejavascript2')?.setValue(s);
+    // this.codeForm.get('srccodejavascript2')?.setValue(s);
   }
 
   executeJavascript() {
@@ -44,5 +49,15 @@ export class CodeComponent implements OnInit, PageInterface {
 
   videConsole(): void {
     this.resultatCode=[];
+  }
+
+  update() {
+    const s='let i=1;\n' +
+      'console.log(\'coucou\');\n' +
+      'for(let j=0;j<5;j++){\n' +
+      '  i=i+1;\n' +
+      '}\n' +
+      'return i;';
+    this.codeForm.get('srccodejavascript')?.setValue(s);
   }
 }

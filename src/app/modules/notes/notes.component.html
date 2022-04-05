@@ -2,12 +2,13 @@
 
   <div>
 
-    <div class="container">
-      <ngx-codemirror
-        formControlName="texte"
-        [options]="codeMirrorOptions"
-      ></ngx-codemirror>
-    </div>
+<!--    <div class="container">-->
+<!--      <ngx-codemirror-->
+<!--        formControlName="texte"-->
+<!--        [options]="codeMirrorOptions"-->
+<!--      ></ngx-codemirror>-->
+<!--    </div>-->
+    <app-editor formControlName="texte" [langage]="mode" [theme]="theme"></app-editor>
   </div>
 
   <div>

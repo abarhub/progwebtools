@@ -6,6 +6,7 @@ import { CodeComponent } from './code.component';
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {EditorModule} from "../editor/editor.module";
 
 
 @NgModule({
@@ -15,12 +16,13 @@ import {MatButtonModule} from "@angular/material/button";
     exports: [
         CodeComponent
     ],
-  imports: [
-    CommonModule,
-    CodeRoutingModule,
-    CodemirrorModule,
-    ReactiveFormsModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        CodeRoutingModule,
+        CodemirrorModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        EditorModule
+    ]
 })
 export class CodeModule { }

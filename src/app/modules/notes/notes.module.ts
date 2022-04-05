@@ -8,6 +8,7 @@ import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
+import {EditorModule} from "../editor/editor.module";
 
 
 @NgModule({
@@ -17,14 +18,15 @@ import {MatButtonModule} from "@angular/material/button";
   exports: [
     NotesComponent
   ],
-  imports: [
-    CommonModule,
-    NotesRoutingModule,
-    MatTabsModule,
-    CodemirrorModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        NotesRoutingModule,
+        MatTabsModule,
+        CodemirrorModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatButtonModule,
+        EditorModule
+    ]
 })
 export class NotesModule { }
