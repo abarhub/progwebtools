@@ -1,0 +1,46 @@
+<section>
+  <div class="example-label">Date du jour: {{dateJour}} (millisecondes: {{dateJourMilli}})</div>
+  <div class="example-button-row">
+    <button mat-raised-button (click)="majDate()">Mise à jour</button>
+  </div>
+</section>
+
+<mat-divider></mat-divider>
+
+<form [formGroup]="operateurForm" (ngSubmit)="onSubmitOperateur()">
+<mat-form-field appearance="fill">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker" formControlName="dateOperateur">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Operateur</mat-label>
+  <mat-select formControlName="operateur">
+    <mat-option *ngFor="let operateur of listeOperateur" [value]="operateur">
+      {{operateur}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Valeur</mat-label>
+  <input matInput placeholder="Ex. Pizza" type="number" formControlName="valeurOperateur">
+</mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Unite</mat-label>
+    <mat-select formControlName="unite">
+      <mat-option *ngFor="let unite of listeUnite" [value]="unite">
+        {{unite}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<button mat-raised-button (click)="calcul()">Calcul</button>
+
+<span>{{resultat}}</span>
+
+</form>
+<mat-divider></mat-divider>

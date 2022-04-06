@@ -23,6 +23,7 @@ export class TabComponent implements OnInit, OnDestroy {
   private compteurConversion: number = 1;
   private compteurCode: number = 1;
   private compteurNote: number = 1;
+  private compteurDate: number = 1;
   private compteur: number = 1;
   private noid: number = 1;
   private indexSelected: number = -1;
@@ -50,6 +51,9 @@ export class TabComponent implements OnInit, OnDestroy {
         } else if (value === PageEnum.Notes) {
           page.titre = 'Note ' + this.compteurNote;
           this.compteurNote++;
+        } else if (value === PageEnum.Date) {
+          page.titre = 'Date ' + this.compteurNote;
+          this.compteurDate++;
         } else {
           page.titre = 'Page ' + this.compteur;
           this.compteur++;

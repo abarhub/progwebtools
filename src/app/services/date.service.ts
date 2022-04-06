@@ -1,5 +1,7 @@
 import {Injectable} from "@angular/core";
 import {DateTime} from "luxon";
+import {OperateurEnum} from "../modules/entity/operateur.enum";
+import {DateUniteEnum} from "../modules/entity/date.unite.enum";
 
 @Injectable({
   providedIn: 'root',
@@ -26,4 +28,17 @@ export class DateService {
   dateToString(datetime: DateTime): string {
     return datetime.toFormat('yyyy-MM-dd\'T\'HH:mm:ss')
   }
+
+  calculDate(datetime: DateTime, operateur: OperateurEnum, valeur: number, unite:DateUniteEnum):DateTime {
+    const opVal=(operateur===OperateurEnum.Plus)?valeur:-valeur;
+    if (unite===DateUniteEnum.Jour){
+      return datetime.plus({ days: opVal });
+    } else {
+      return datetime.plus({ months: opVal });
+    }
+  }
+
+  isDateTime(date:any): date is DateTime {
+    return (date as DateTime).day!==undefined;
+}
 }

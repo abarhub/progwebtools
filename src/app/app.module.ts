@@ -29,7 +29,8 @@ import {MatDividerModule} from "@angular/material/divider";
         MatMenuModule,
         RouterModule,
         TabModule,
-        MatDividerModule
+        MatDividerModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]

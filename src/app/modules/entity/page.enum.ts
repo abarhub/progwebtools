@@ -1,5 +1,6 @@
 export enum PageEnum {
   Conversion,
   Code,
-  Notes
+  Notes,
+  Date
 }

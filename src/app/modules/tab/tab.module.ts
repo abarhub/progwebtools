@@ -7,6 +7,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {ConversionModule} from "../conversion/conversion.module";
 import {CodeModule} from "../code/code.module";
 import {NotesModule} from "../notes/notes.module";
+import {DateModule} from "../date/date.module";
 
 
 @NgModule({
@@ -16,13 +17,14 @@ import {NotesModule} from "../notes/notes.module";
   exports: [
     TabComponent
   ],
-  imports: [
-    CommonModule,
-    TabRoutingModule,
-    MatTabsModule,
-    ConversionModule,
-    CodeModule,
-    NotesModule
-  ]
+    imports: [
+        CommonModule,
+        TabRoutingModule,
+        MatTabsModule,
+        ConversionModule,
+        CodeModule,
+        NotesModule,
+        DateModule
+    ]
 })
 export class TabModule { }

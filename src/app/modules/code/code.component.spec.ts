@@ -1,10 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CodeComponent } from './code.component';
+import {CodeComponent} from './code.component';
 import {CommonModule} from "@angular/common";
 import {CodeRoutingModule} from "./code-routing.module";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {EditorModule} from "../editor/editor.module";
 
 describe('CodeComponent', () => {
   let component: CodeComponent;
@@ -12,15 +14,16 @@ describe('CodeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CodeComponent ],
+      declarations: [CodeComponent],
       imports: [
         CommonModule,
         CodeRoutingModule,
-        CodemirrorModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatButtonModule,
+        EditorModule
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
