@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { CodeRoutingModule } from './code-routing.module';
 import { CodeComponent } from './code.component';
-import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {EditorModule} from "../editor/editor.module";
@@ -19,7 +18,6 @@ import {EditorModule} from "../editor/editor.module";
     imports: [
         CommonModule,
         CodeRoutingModule,
-        CodemirrorModule,
         ReactiveFormsModule,
         MatButtonModule,
         EditorModule
