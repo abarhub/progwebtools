@@ -9,6 +9,8 @@ import 'codemirror/mode/htmlmixed/htmlmixed';
 import 'codemirror/mode/sql/sql';
 import 'codemirror/mode/markdown/markdown';
 
+import { DateTime } from 'luxon';
+
 if (environment.production) {
   enableProdMode();
 }
