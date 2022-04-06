@@ -41,4 +41,12 @@ export class DateService {
   isDateTime(date:any): date is DateTime {
     return (date as DateTime).day!==undefined;
 }
+
+  calculDifference(dateDebut: DateTime, dateFin: DateTime, unite:DateUniteEnum):string {
+    if(unite===DateUniteEnum.Jour) {
+      return dateFin.diff(dateDebut, 'days').days + ' jours';
+    } else {
+      return dateFin.diff(dateDebut, 'months').months + ' mois';
+    }
+  }
 }

@@ -12,6 +12,7 @@ import {MatLuxonDateModule} from "@angular/material-luxon-adapter";
 import {MAT_DATE_LOCALE} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     MatLuxonDateModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'fr'},

@@ -69,5 +69,23 @@ describe('Test DateService', () => {
     expect(res).toBeFalse();
   });
 
+  it('test calculDifference jours', () => {
+    dateService = new DateService();
+
+    const date=DateTime.fromObject({year: 2022, month: 4, day: 6});
+    const date2=DateTime.fromObject({year: 2022, month: 4, day: 20});
+    const res=dateService.calculDifference(date, date2, DateUniteEnum.Jour);
+    expect(res).toEqual("14 jours");
+  });
+
+  it('test calculDifference mois', () => {
+    dateService = new DateService();
+
+    const date=DateTime.fromObject({year: 2022, month: 4, day: 6});
+    const date2=DateTime.fromObject({year: 2022, month: 6, day: 6});
+    const res=dateService.calculDifference(date, date2, DateUniteEnum.Mois);
+    expect(res).toEqual("2 mois");
+  });
+
 
 });

@@ -17,3 +17,7 @@ section {
 .example-button-row .mat-button-base {
   margin: 8px 8px 8px 0;
 }
+
+.demo-inline-calendar-card {
+  width: 300px;
+}
