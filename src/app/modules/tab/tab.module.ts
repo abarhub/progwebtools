@@ -8,6 +8,7 @@ import {ConversionModule} from "../conversion/conversion.module";
 import {CodeModule} from "../code/code.module";
 import {NotesModule} from "../notes/notes.module";
 import {DateModule} from "../date/date.module";
+import {FilesModule} from "../files/files.module";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {DateModule} from "../date/date.module";
         ConversionModule,
         CodeModule,
         NotesModule,
-        DateModule
+        DateModule,
+        FilesModule
     ]
 })
 export class TabModule { }

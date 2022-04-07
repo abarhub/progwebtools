@@ -1,0 +1,20 @@
+<button (click)="ajout()">Ajout</button>
+
+<div *ngFor="let fn of fileList">
+  <span>{{fn}}</span>
+<input type="file" class="file-input"
+       (change)="onFileSelected($event, fn)" #fileUpload>
+
+<div class="file-upload">
+
+  {{filesService.get(fn)?.name || "No file uploaded yet."}}
+
+  <button mat-mini-fab color="primary" class="upload-btn"
+          (click)="fileUpload.click()">
+    <mat-icon>attach_file</mat-icon>
+  </button>
+  <input type="checkbox" [name]="'text_'+fn" [id]="'text_'+fn" checked="checked"> Texte
+</div>
+<br/>
+<a (click)="download(fn)" class="pointer">Telecharger</a>
+</div>

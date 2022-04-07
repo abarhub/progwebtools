@@ -2,5 +2,6 @@ export enum PageEnum {
   Conversion,
   Code,
   Notes,
-  Date
+  Date,
+  Files
 }

@@ -24,6 +24,7 @@ export class TabComponent implements OnInit, OnDestroy {
   private compteurCode: number = 1;
   private compteurNote: number = 1;
   private compteurDate: number = 1;
+  private compteurFiles: number = 1;
   private compteur: number = 1;
   private noid: number = 1;
   private indexSelected: number = -1;
@@ -54,6 +55,9 @@ export class TabComponent implements OnInit, OnDestroy {
         } else if (value === PageEnum.Date) {
           page.titre = 'Date ' + this.compteurNote;
           this.compteurDate++;
+        } else if (value === PageEnum.Files) {
+          page.titre = 'Files ' + this.compteurFiles;
+          this.compteurFiles++;
         } else {
           page.titre = 'Page ' + this.compteur;
           this.compteur++;
