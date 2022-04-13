@@ -17,12 +17,12 @@ export class DateService {
         // l'epoch en en seconde => conversion en millisecondes
         epochNumber = epochNumber * 1000;
       }
-      return DateTime.fromMillis(epochNumber);
+      return DateTime.fromMillis(epochNumber, { zone: 'utc' });
     }
   }
 
   dateToEpoch(date: string): number{
-    return DateTime.fromISO(date).toMillis();
+    return DateTime.fromISO(date, { zone: 'utc' }).toMillis();
   }
 
   dateToString(datetime: DateTime): string {

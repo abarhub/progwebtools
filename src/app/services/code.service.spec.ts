@@ -31,9 +31,9 @@ describe('CodeService', () => {
   });
 
   it('test execute context datetime', () => {
-    const s = 'return context.getDateLocal(2022,3,14,10,6).toString();';
+    const s = 'return context.getDateLocal(2022,3,14,10,6).toFormat(\'yyyy-MM-dd\\\'T\\\'HH:mm:ss.SSS\');';
     const res = service.execute(s);
-    expect(res).toEqual('2022-03-14T10:06:00.000+01:00');
+    expect(res).toEqual('2022-03-14T10:06:00.000');
   });
 
 });
