@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DateTime} from "luxon";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {OperateurEnum} from "../entity/operateur.enum";
 import {DateUniteEnum} from "../entity/date.unite.enum";
 import {DateService} from "../../services/date.service";
@@ -15,17 +15,17 @@ export class DateComponent implements OnInit {
   dateJour: DateTime = DateTime.now();
   dateJourMilli: number = 0;
 
-  operateurForm: FormGroup = this.fb.group({dateOperateur: [''], operateur: [''], valeurOperateur: [''], unite: ['']});
+  operateurForm: UntypedFormGroup = this.fb.group({dateOperateur: [''], operateur: [''], valeurOperateur: [''], unite: ['']});
   listeOperateur: string[] = ['+', '-'];
   listeUnite: string[] = ['jour', 'mois'];
   resultat: string = '';
 
-  differenceForm: FormGroup = this.fb.group({dateDebut: [''], dateFin: ['']});
+  differenceForm: UntypedFormGroup = this.fb.group({dateDebut: [''], dateFin: ['']});
   resultatDifference: string = '';
 
   selected: DateTime | null = null;
 
-  constructor(public fb: FormBuilder, private dateService: DateService) {
+  constructor(public fb: UntypedFormBuilder, private dateService: DateService) {
   }
 
   ngOnInit(): void {

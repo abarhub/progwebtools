@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PageInterface} from "../entity/page.interface";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-notes',
@@ -25,9 +25,9 @@ export class NotesComponent implements OnInit, PageInterface {
     //lint: true
   };
 
-  noteForm: FormGroup = this.fb.group({texte: [''], langageSelectionne: [''], theme: ['default']});
+  noteForm: UntypedFormGroup = this.fb.group({texte: [''], langageSelectionne: [''], theme: ['default']});
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {Base64Service} from "../../services/base64.service";
 import {YamlService} from "../../services/yaml.service";
 import {PageInterface} from "../entity/page.interface";
@@ -13,11 +13,11 @@ import {DateService} from "../../services/date.service";
 export class ConversionComponent implements OnInit, PageInterface {
 
   langages: string[] = ["json", "str -> base64", "base64 -> str", "yml -> properties", "epoch -> datetime", "datetime -> millisecondes"];
-  registrationForm: FormGroup = this.fb.group({texte: [''], texteResultat:['']});
+  registrationForm: UntypedFormGroup = this.fb.group({texte: [''], texteResultat:['']});
   texte: string = '';
   texteResultat: string = '';
 
-  constructor(public fb: FormBuilder, private base64Service: Base64Service, private yamlService: YamlService, private dateService:DateService) { }
+  constructor(public fb: UntypedFormBuilder, private base64Service: Base64Service, private yamlService: YamlService, private dateService:DateService) { }
 
   ngOnInit(): void {
     const texte = "{\"key1\":\"aaa\",\"key2\":\"bbb\",\"key3\":{\"m1\":[1,2,3],\"m2\":\"hhhh\",\"m3\":[\"sss\",\"ddd\",\"fff\"]}}";

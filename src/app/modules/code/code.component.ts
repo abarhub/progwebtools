@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {PageInterface} from "../entity/page.interface";
 import {CodeService} from "../../services/code.service";
 
@@ -10,12 +10,12 @@ import {CodeService} from "../../services/code.service";
 })
 export class CodeComponent implements OnInit, PageInterface {
 
-  codeForm: FormGroup = this.fb.group({srccodejavascript: [''], srccodejavascript2: ['']});
+  codeForm: UntypedFormGroup = this.fb.group({srccodejavascript: [''], srccodejavascript2: ['']});
   resultatCode: string[] = [];
   static noDernier: number = 1;
   no: number = 0;
 
-  constructor(public fb: FormBuilder, private codeService: CodeService) {
+  constructor(public fb: UntypedFormBuilder, private codeService: CodeService) {
     this.no = CodeComponent.noDernier;
     CodeComponent.noDernier++;
   }
