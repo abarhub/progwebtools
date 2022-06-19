@@ -24,7 +24,7 @@
     "@angular/router": "^14.0.2",
     "@ctrl/ngx-codemirror": "^5.1.1",
     "@types/js-yaml": "^4.0.5",
-    "codemirror": "^5.65.1",
+    "codemirror": "^5.65.5",
     "file-saver": "^2.0.5",
     "js-yaml": "^4.1.0",
     "luxon": "^2.3.1",
