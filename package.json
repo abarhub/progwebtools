@@ -27,7 +27,7 @@
     "codemirror": "^5.65.9",
     "file-saver": "^2.0.5",
     "js-yaml": "^4.1.0",
-    "luxon": "^2.3.1",
+    "luxon": "^2.5.2",
     "ngx-filesaver": "^13.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
