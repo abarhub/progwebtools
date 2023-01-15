@@ -15,3 +15,21 @@ ng update --force @angular/core @angular/cli
 ```shell
 ng update @angular/material
 ```
+
+* Mise à jour de ngx-codemirror
+
+```shell
+npm install @ctrl/ngx-codemirror codemirror@5
+```
+
+* Mise à jour de ngx-filesaver
+
+```shell
+npm install file-saver ngx-filesaver
+```
+
+* Mise à jour de js-yaml
+
+```shell
+npm install js-yaml @types/js-yaml
+```
