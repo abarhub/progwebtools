@@ -3,13 +3,13 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatSliderModule} from "@angular/material/slider";
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatLegacySliderModule as MatSliderModule} from "@angular/material/legacy-slider";
+import {MatLegacyFormFieldModule as MatFormFieldModule} from "@angular/material/legacy-form-field";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
-import {MatTabsModule} from "@angular/material/tabs";
+import {MatLegacyTabsModule as MatTabsModule} from "@angular/material/legacy-tabs";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
-import {MatMenuModule} from "@angular/material/menu";
+import {MatLegacyMenuModule as MatMenuModule} from "@angular/material/legacy-menu";
 
 describe('AppComponent', () => {
   beforeEach(async () => {

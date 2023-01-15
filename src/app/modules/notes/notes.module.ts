@@ -4,8 +4,8 @@ import {CommonModule} from '@angular/common';
 import {NotesRoutingModule} from './notes-routing.module';
 import {NotesComponent} from './notes.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import {MatSelectModule} from "@angular/material/select";
-import {MatButtonModule} from "@angular/material/button";
+import {MatLegacySelectModule as MatSelectModule} from "@angular/material/legacy-select";
+import {MatLegacyButtonModule as MatButtonModule} from "@angular/material/legacy-button";
 import {EditorModule} from "../editor/editor.module";
 
 

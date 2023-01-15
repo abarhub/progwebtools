@@ -5,7 +5,7 @@ import {CommonModule} from "@angular/common";
 import {CodeRoutingModule} from "./code-routing.module";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {ReactiveFormsModule} from "@angular/forms";
-import {MatButtonModule} from "@angular/material/button";
+import {MatLegacyButtonModule as MatButtonModule} from "@angular/material/legacy-button";
 import {EditorModule} from "../editor/editor.module";
 
 describe('CodeComponent', () => {
