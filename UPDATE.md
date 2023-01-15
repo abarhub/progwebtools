@@ -1,6 +1,7 @@
 # Monté de version
 
 * Mise à jour d'angular
+La documentation pour la monté de version d'angular est [ici](https://update.angular.io/)
 ```shell
 ng update @angular/core @angular/cli
 ```
