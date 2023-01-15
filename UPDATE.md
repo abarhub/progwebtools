@@ -33,3 +33,22 @@ npm install file-saver ngx-filesaver
 ```shell
 npm install js-yaml @types/js-yaml
 ```
+
+* Analyse des problèmes de sécurité
+  Pour analyser les problèmes de sécurité, il faut executer :
+```shell
+npm audit
+```
+
+Ensuite pour les corriger, il faut executer :
+```shell
+npm audit fix
+```
+
+* Test de la mise à jour
+
+Il faut vérifier que tout fonctionne. Pour cela, il faut lancer l'application et vérifier qu'elle fonctionne.
+Ensuite il faut lancer les tests unitaires avec la commande :
+ ```shell
+npm run test_no_ui
+```
