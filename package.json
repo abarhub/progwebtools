@@ -28,7 +28,7 @@
     "file-saver": "^2.0.5",
     "js-yaml": "^4.1.0",
     "luxon": "^3.2.1",
-    "ngx-filesaver": "^13.0.0",
+    "ngx-filesaver": "^16.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.1"
