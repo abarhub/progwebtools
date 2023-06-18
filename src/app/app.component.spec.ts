@@ -10,6 +10,9 @@ import {MatLegacyTabsModule as MatTabsModule} from "@angular/material/legacy-tab
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatLegacyMenuModule as MatMenuModule} from "@angular/material/legacy-menu";
+import {TabComponent} from "./modules/tab/tab.component";
+import {MatDividerModule} from "@angular/material/divider";
+import {TabModule} from "./modules/tab/tab.module";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -25,6 +28,8 @@ describe('AppComponent', () => {
         MatToolbarModule,
         MatIconModule,
         MatMenuModule,
+        MatDividerModule,
+        TabModule
       ],
       declarations: [
         AppComponent

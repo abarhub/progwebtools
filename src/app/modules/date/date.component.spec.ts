@@ -13,6 +13,8 @@ import {MatLegacySelectModule as MatSelectModule} from "@angular/material/legacy
 import {ReactiveFormsModule} from "@angular/forms";
 import {MAT_DATE_LOCALE} from "@angular/material/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatCard} from "@angular/material/card";
+import {MatLegacyCardModule as MatCardModule} from "@angular/material/legacy-card";
 
 describe('DateComponent', () => {
   let component: DateComponent;
@@ -32,7 +34,8 @@ describe('DateComponent', () => {
         MatLuxonDateModule,
         MatSelectModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatCardModule
       ],
       providers: [
         {provide: MAT_DATE_LOCALE, useValue: 'fr'},
