@@ -6,9 +6,10 @@ import {MatTabChangeEvent} from "@angular/material/tabs";
 import {takeUntil} from "rxjs/operators";
 
 @Component({
-  selector: 'app-tab',
-  templateUrl: './tab.component.html',
-  styleUrls: ['./tab.component.css']
+    selector: 'app-tab',
+    templateUrl: './tab.component.html',
+    styleUrls: ['./tab.component.css'],
+    standalone: false
 })
 export class TabComponent implements OnInit, OnDestroy {
 

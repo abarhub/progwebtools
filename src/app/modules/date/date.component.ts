@@ -6,9 +6,10 @@ import {DateUniteEnum} from "../entity/date.unite.enum";
 import {DateService} from "../../services/date.service";
 
 @Component({
-  selector: 'app-date',
-  templateUrl: './date.component.html',
-  styleUrls: ['./date.component.css']
+    selector: 'app-date',
+    templateUrl: './date.component.html',
+    styleUrls: ['./date.component.css'],
+    standalone: false
 })
 export class DateComponent implements OnInit {
 

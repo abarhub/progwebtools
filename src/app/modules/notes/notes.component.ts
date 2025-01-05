@@ -3,9 +3,10 @@ import {PageInterface} from "../entity/page.interface";
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 
 @Component({
-  selector: 'app-notes',
-  templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.css']
+    selector: 'app-notes',
+    templateUrl: './notes.component.html',
+    styleUrls: ['./notes.component.css'],
+    standalone: false
 })
 export class NotesComponent implements OnInit, PageInterface {
 

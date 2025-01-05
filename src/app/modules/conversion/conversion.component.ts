@@ -6,9 +6,10 @@ import {PageInterface} from "../entity/page.interface";
 import {DateService} from "../../services/date.service";
 
 @Component({
-  selector: 'app-conversion',
-  templateUrl: './conversion.component.html',
-  styleUrls: ['./conversion.component.css']
+    selector: 'app-conversion',
+    templateUrl: './conversion.component.html',
+    styleUrls: ['./conversion.component.css'],
+    standalone: false
 })
 export class ConversionComponent implements OnInit, PageInterface {
 
