@@ -4,7 +4,7 @@
 
 [site](https://abarhub.github.io/progwebtools/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.13.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
 
 ## Development server
 
