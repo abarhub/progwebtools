@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabComponent } from './tab.component';
-import {MatLegacyTabsModule as MatTabsModule} from "@angular/material/legacy-tabs";
+import {MatTabsModule} from "@angular/material/tabs";
 
 describe('TabComponent', () => {
   let component: TabComponent;

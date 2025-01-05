@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from "rxjs";
 import {PageEnum} from "../entity/page.enum";
 import {PageModel} from "../entity/page.model";
-import {MatLegacyTabChangeEvent as MatTabChangeEvent} from "@angular/material/legacy-tabs";
+import {MatTabChangeEvent} from "@angular/material/tabs";
 import {takeUntil} from "rxjs/operators";
 
 @Component({
