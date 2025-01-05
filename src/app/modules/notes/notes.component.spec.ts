@@ -3,11 +3,11 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {NotesComponent} from './notes.component';
 import {CommonModule} from "@angular/common";
 import {NotesRoutingModule} from "./notes-routing.module";
-import {MatLegacyTabsModule as MatTabsModule} from "@angular/material/legacy-tabs";
+import {MatTabsModule} from "@angular/material/tabs";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ReactiveFormsModule} from "@angular/forms";
-import {MatLegacySelectModule as MatSelectModule} from "@angular/material/legacy-select";
-import {MatLegacyButtonModule as MatButtonModule} from "@angular/material/legacy-button";
+import {MatSelectModule} from "@angular/material/select";
+import {MatButtonModule} from "@angular/material/button";
 import {EditorModule} from "../editor/editor.module";
 
 describe('NotesComponent', () => {
