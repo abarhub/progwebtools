@@ -3,12 +3,13 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {CodemirrorComponent} from "@ctrl/ngx-codemirror";
 
 @Component({
-  selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR, useExisting: EditorComponent, multi: true
-  }]
+    selector: 'app-editor',
+    templateUrl: './editor.component.html',
+    styleUrls: ['./editor.component.css'],
+    providers: [{
+            provide: NG_VALUE_ACCESSOR, useExisting: EditorComponent, multi: true
+        }],
+    standalone: false
 })
 export class EditorComponent implements ControlValueAccessor,OnInit {
 

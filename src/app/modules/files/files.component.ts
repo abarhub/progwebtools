@@ -6,9 +6,10 @@ import {FileSaverService} from "ngx-filesaver";
 
 
 @Component({
-  selector: 'app-files',
-  templateUrl: './files.component.html',
-  styleUrls: ['./files.component.css']
+    selector: 'app-files',
+    templateUrl: './files.component.html',
+    styleUrls: ['./files.component.css'],
+    standalone: false
 })
 export class FilesComponent implements OnInit {
 

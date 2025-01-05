@@ -4,9 +4,10 @@ import {PageInterface} from "../entity/page.interface";
 import {CodeService} from "../../services/code.service";
 
 @Component({
-  selector: 'app-code',
-  templateUrl: './code.component.html',
-  styleUrls: ['./code.component.css']
+    selector: 'app-code',
+    templateUrl: './code.component.html',
+    styleUrls: ['./code.component.css'],
+    standalone: false
 })
 export class CodeComponent implements OnInit, PageInterface {
 
