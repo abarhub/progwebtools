@@ -1,19 +1,25 @@
 <mat-tab-group animationDuration="0ms" (selectedTabChange)="tabChanged($event)">
-  <mat-tab *ngFor="let page of tabListName" [label]="page.titre">
-
-      <div [ngSwitch]="page.typePage">
-
-        <app-conversion *ngSwitchCase="PageEnum.Conversion"></app-conversion>
-
-        <app-code *ngSwitchCase="PageEnum.Code"></app-code>
-
-        <app-notes *ngSwitchCase="PageEnum.Notes"></app-notes>
-
-        <app-date *ngSwitchCase="PageEnum.Date"></app-date>
-
-        <app-files *ngSwitchCase="PageEnum.Files"></app-files>
-
+  @for (page of tabListName; track page) {
+    <mat-tab [label]="page.titre">
+      <div>
+        @switch (page.typePage) {
+          @case (PageEnum.Conversion) {
+            <app-conversion></app-conversion>
+          }
+          @case (PageEnum.Code) {
+            <app-code></app-code>
+          }
+          @case (PageEnum.Notes) {
+            <app-notes></app-notes>
+          }
+          @case (PageEnum.Date) {
+            <app-date></app-date>
+          }
+          @case (PageEnum.Files) {
+            <app-files></app-files>
+          }
+        }
       </div>
-
-  </mat-tab>
+    </mat-tab>
+  }
 </mat-tab-group>

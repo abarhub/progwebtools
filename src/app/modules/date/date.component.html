@@ -22,9 +22,11 @@
   <mat-form-field appearance="fill">
     <mat-label>Operateur</mat-label>
     <mat-select formControlName="operateur">
-      <mat-option *ngFor="let operateur of listeOperateur" [value]="operateur">
-        {{operateur}}
-      </mat-option>
+      @for (operateur of listeOperateur; track operateur) {
+        <mat-option [value]="operateur">
+          {{operateur}}
+        </mat-option>
+      }
     </mat-select>
   </mat-form-field>
 
@@ -36,9 +38,11 @@
   <mat-form-field appearance="fill">
     <mat-label>Unite</mat-label>
     <mat-select formControlName="unite">
-      <mat-option *ngFor="let unite of listeUnite" [value]="unite">
-        {{unite}}
-      </mat-option>
+      @for (unite of listeUnite; track unite) {
+        <mat-option [value]="unite">
+          {{unite}}
+        </mat-option>
+      }
     </mat-select>
   </mat-form-field>
 
@@ -69,9 +73,11 @@
   <mat-form-field appearance="fill">
     <mat-label>Unite</mat-label>
     <mat-select formControlName="unite">
-      <mat-option *ngFor="let unite of listeUnite" [value]="unite">
-        {{unite}}
-      </mat-option>
+      @for (unite of listeUnite; track unite) {
+        <mat-option [value]="unite">
+          {{unite}}
+        </mat-option>
+      }
     </mat-select>
   </mat-form-field>
 

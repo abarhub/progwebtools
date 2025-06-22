@@ -2,37 +2,41 @@
 
   <div>
 
-<!--    <div class="container">-->
-<!--      <ngx-codemirror-->
-<!--        formControlName="texte"-->
-<!--        [options]="codeMirrorOptions"-->
-<!--      ></ngx-codemirror>-->
+    <!--    <div class="container">-->
+    <!--      <ngx-codemirror-->
+    <!--        formControlName="texte"-->
+    <!--        [options]="codeMirrorOptions"-->
+  <!--      ></ngx-codemirror>-->
 <!--    </div>-->
-    <app-editor formControlName="texte" [langage]="mode" [theme]="theme"></app-editor>
-  </div>
+<app-editor formControlName="texte" [langage]="mode" [theme]="theme"></app-editor>
+</div>
 
-  <div>
+<div>
 
-    <mat-form-field>
-      <mat-label>Langage</mat-label>
-      <mat-select formControlName="langageSelectionne">
-        <mat-option *ngFor="let langage of langages" [value]="langage">{{langage}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field>
+    <mat-label>Langage</mat-label>
+    <mat-select formControlName="langageSelectionne">
+      @for (langage of langages; track langage) {
+        <mat-option [value]="langage">{{langage}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Theme</mat-label>
-      <mat-select formControlName="langageSelectionne">
-        <mat-option *ngFor="let theme of themes" [value]="theme">{{theme}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <section>
-      <div class="example-button-row">
-        <button (click)="appliquer()" mat-raised-button>Appliquer</button>
-        <!--        <button (click)="videConsole()" mat-raised-button>Vide la console</button>-->
-      </div>
-    </section>
-  </div>
+  <mat-form-field>
+    <mat-label>Theme</mat-label>
+    <mat-select formControlName="langageSelectionne">
+      @for (theme of themes; track theme) {
+        <mat-option [value]="theme">{{theme}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <section>
+    <div class="example-button-row">
+      <button (click)="appliquer()" mat-raised-button>Appliquer</button>
+      <!--        <button (click)="videConsole()" mat-raised-button>Vide la console</button>-->
+    </div>
+  </section>
+</div>
 
 </form>
 
