@@ -19,7 +19,7 @@ ng update @angular/material
 * Mise à jour de ngx-codemirror
 
 ```shell
-npm install @ctrl/ngx-codemirror codemirror@5
+npm install @acrodata/code-editor
 ```
 
 * Mise à jour de ngx-filesaver
