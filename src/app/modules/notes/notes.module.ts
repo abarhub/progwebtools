@@ -6,7 +6,7 @@ import {NotesComponent} from './notes.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
-import {EditorModule} from "../editor/editor.module";
+import {CodeEditor} from "@acrodata/code-editor";
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import {EditorModule} from "../editor/editor.module";
     ReactiveFormsModule,
     MatSelectModule,
     MatButtonModule,
-    EditorModule
+    CodeEditor
   ]
 })
 export class NotesModule {

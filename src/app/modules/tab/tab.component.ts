@@ -1,9 +1,10 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {Subject} from "rxjs";
 import {PageEnum} from "../entity/page.enum";
 import {PageModel} from "../entity/page.model";
 import {MatTabChangeEvent} from "@angular/material/tabs";
 import {takeUntil} from "rxjs/operators";
+import {CodeComponent} from "../code/code.component";
 
 @Component({
     selector: 'app-tab',

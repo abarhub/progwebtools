@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, effect, input, Input, OnInit, ViewChild} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {PageInterface} from "../entity/page.interface";
 import {CodeService} from "../../services/code.service";
 
 @Component({
-    selector: 'app-code',
-    templateUrl: './code.component.html',
-    styleUrls: ['./code.component.css'],
-    standalone: false
+  selector: 'app-code',
+  templateUrl: './code.component.html',
+  styleUrls: ['./code.component.css'],
+  standalone: false
 })
 export class CodeComponent implements OnInit, PageInterface {
 
@@ -30,6 +30,7 @@ export class CodeComponent implements OnInit, PageInterface {
       '}\n' +
       'return i;';
     this.codeForm.get('srccodejavascript')?.setValue(s);
+
   }
 
   executeJavascript() {

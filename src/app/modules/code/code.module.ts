@@ -5,7 +5,7 @@ import { CodeRoutingModule } from './code-routing.module';
 import { CodeComponent } from './code.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
-import {EditorModule} from "../editor/editor.module";
+import {CodeEditor} from "@acrodata/code-editor";
 
 
 @NgModule({
@@ -15,12 +15,12 @@ import {EditorModule} from "../editor/editor.module";
     exports: [
         CodeComponent
     ],
-    imports: [
-        CommonModule,
-        CodeRoutingModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        EditorModule
-    ]
+  imports: [
+    CommonModule,
+    CodeRoutingModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    CodeEditor
+  ]
 })
 export class CodeModule { }
