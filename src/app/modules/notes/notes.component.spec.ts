@@ -3,12 +3,11 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {NotesComponent} from './notes.component';
 import {CommonModule} from "@angular/common";
 import {NotesRoutingModule} from "./notes-routing.module";
-import {MatTabsModule} from "@angular/material/tabs";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
-import {EditorModule} from "../editor/editor.module";
+import {CodeEditor} from "@acrodata/code-editor";
 
 describe('NotesComponent', () => {
   let component: NotesComponent;
@@ -24,7 +23,7 @@ describe('NotesComponent', () => {
         ReactiveFormsModule,
         MatSelectModule,
         MatButtonModule,
-        EditorModule
+        CodeEditor
       ]
     })
       .compileComponents();

@@ -5,7 +5,6 @@ import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
@@ -23,7 +22,6 @@ describe('AppComponent', () => {
         MatSliderModule,
         MatFormFieldModule,
         ReactiveFormsModule,
-        CodemirrorModule,
         MatTabsModule,
         MatToolbarModule,
         MatIconModule,

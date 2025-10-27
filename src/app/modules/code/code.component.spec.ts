@@ -3,10 +3,9 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {CodeComponent} from './code.component';
 import {CommonModule} from "@angular/common";
 import {CodeRoutingModule} from "./code-routing.module";
-import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
-import {EditorModule} from "../editor/editor.module";
+import {CodeEditor} from "@acrodata/code-editor";
 
 describe('CodeComponent', () => {
   let component: CodeComponent;
@@ -20,7 +19,7 @@ describe('CodeComponent', () => {
         CodeRoutingModule,
         ReactiveFormsModule,
         MatButtonModule,
-        EditorModule
+        CodeEditor
       ]
     })
       .compileComponents();
