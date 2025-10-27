@@ -1,3 +1,7 @@
+# version 1.7.0 (22/06/2025)
+* passage à angular 20.3.7
+* utilisation de codemirror 6
+
 # version 1.6.0 (22/06/2025)
 * passage à angular 20.0.4
 
