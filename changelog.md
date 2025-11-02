@@ -1,3 +1,6 @@
+# version 1.8.0 (02/11/2025)
+* outils de parsing pour les token jwt
+
 # version 1.7.0 (22/06/2025)
 * passage à angular 20.3.7
 * utilisation de codemirror 6
