@@ -5,6 +5,7 @@ import {YamlService} from "../../services/yaml.service";
 import {PageInterface} from "../entity/page.interface";
 import {DateService} from "../../services/date.service";
 import {JwtService} from "../../services/jwt.service";
+import {StrConvertService} from "../../services/str-convert.service";
 
 @Component({
   selector: 'app-conversion',
@@ -14,13 +15,15 @@ import {JwtService} from "../../services/jwt.service";
 })
 export class ConversionComponent implements OnInit, PageInterface {
 
-  langages: string[] = ["json", "str -> base64", "base64 -> str", "yml -> properties", "epoch -> datetime", "datetime -> millisecondes", "jwt"];
+  langages: string[] = ["json", "str -> base64", "base64 -> str", "yml -> properties", "epoch -> datetime", "datetime -> millisecondes", "jwt",
+    "\\ -> /", "/ -> \\", "\\ -> \\\\", "\\\\ -> \\", "encode url", "encode paramètre url", "encode html", "decode html",
+    "encode properties", "decode properties"];
   registrationForm: UntypedFormGroup = this.fb.group({texte: [''], texteResultat: ['']});
   texte: string = '';
   texteResultat: string = '';
 
   constructor(public fb: UntypedFormBuilder, private base64Service: Base64Service, private yamlService: YamlService,
-              private dateService: DateService, private jwtService: JwtService) {
+              private dateService: DateService, private jwtService: JwtService, private strConvertService: StrConvertService) {
   }
 
   ngOnInit(): void {
@@ -63,6 +66,46 @@ export class ConversionComponent implements OnInit, PageInterface {
         let s = this.registrationForm.get('texte')?.value;
         s = this.jwtService.parseJwt(s);
         console.log(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[7]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.convertBackSlashToSlash(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[8]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.convertSlashToBackslash(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[9]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.doubleBackslash(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[10]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.removeDoubleBackslash(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[11]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.encodeUrl(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[12]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.encodeParamUrl(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[13]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.encodeHtml(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[14]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.decodeHtml(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[15]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.encodeToPropertiesFormat(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[16]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.decodeFromPropertiesFormat(s);
         this.texteResultat = s;
       }
     }
