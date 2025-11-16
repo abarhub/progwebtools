@@ -1,3 +1,7 @@
+# version 1.9.0 (16/11/2025)
+* outils de conversion (url, chemin, properties)
+
+
 # version 1.8.0 (02/11/2025)
 * outils de parsing pour les token jwt
 
