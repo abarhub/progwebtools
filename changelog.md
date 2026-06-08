@@ -1,3 +1,7 @@
+# version 1.10.0 (08/06/2026)
+* outils de conversion (json non formaté, suppression accents)
+* passage à angular 22
+
 # version 1.9.0 (16/11/2025)
 * outils de conversion (url, chemin, properties)
 
