@@ -26,7 +26,7 @@
     "@angular/router": "^21.2.16",
     "@types/js-yaml": "^4.0.9",
     "file-saver": "^2.0.5",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.2.0",
     "luxon": "^3.7.2",
     "ngx-filesaver": "^16.0.0",
     "rxjs": "^7.8.1",
