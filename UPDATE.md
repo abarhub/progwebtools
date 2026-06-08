@@ -34,6 +34,13 @@ npm install file-saver ngx-filesaver
 npm install js-yaml @types/js-yaml
 ```
 
+* mise à jour de sonar qube
+
+```shell
+npm install sonarqube-scanner
+```
+
+
 * Analyse des problèmes de sécurité
   Pour analyser les problèmes de sécurité, il faut executer :
 ```shell
