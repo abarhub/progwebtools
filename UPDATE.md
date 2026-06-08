@@ -11,7 +11,7 @@ npm install
 ng update --force @angular/core @angular/cli
 ```
 
-* Mise à jour de material degin
+* Mise à jour de material design
 ```shell
 ng update @angular/material
 ```
