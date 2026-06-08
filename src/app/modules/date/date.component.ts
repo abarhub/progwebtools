@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {DateTime} from "luxon";
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {OperateurEnum} from "../entity/operateur.enum";
@@ -9,6 +9,7 @@ import {DateService} from "../../services/date.service";
     selector: 'app-date',
     templateUrl: './date.component.html',
     styleUrls: ['./date.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DateComponent implements OnInit {

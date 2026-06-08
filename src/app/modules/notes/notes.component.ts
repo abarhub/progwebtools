@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {PageInterface} from "../entity/page.interface";
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 
@@ -6,6 +6,7 @@ import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
     selector: 'app-notes',
     templateUrl: './notes.component.html',
     styleUrls: ['./notes.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NotesComponent implements OnInit, PageInterface {

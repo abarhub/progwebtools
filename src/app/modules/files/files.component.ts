@@ -1,4 +1,4 @@
-import {Component, OnInit, Sanitizer, SecurityContext} from '@angular/core';
+import {Component, OnInit, Sanitizer, SecurityContext, ChangeDetectionStrategy} from '@angular/core';
 import {FilesService} from "../../services/files.service";
 import {FileContent} from "../entity/fileContent";
 import {DomSanitizer} from "@angular/platform-browser";
@@ -9,6 +9,7 @@ import {FileSaverService} from "ngx-filesaver";
     selector: 'app-files',
     templateUrl: './files.component.html',
     styleUrls: ['./files.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class FilesComponent implements OnInit {

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {Base64Service} from "../../services/base64.service";
 import {YamlService} from "../../services/yaml.service";
@@ -11,6 +11,7 @@ import {StrConvertService} from "../../services/str-convert.service";
   selector: 'app-conversion',
   templateUrl: './conversion.component.html',
   styleUrls: ['./conversion.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false
 })
 export class ConversionComponent implements OnInit, PageInterface {
