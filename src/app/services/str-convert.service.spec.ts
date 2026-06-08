@@ -71,4 +71,15 @@ describe('StrConvertService', () => {
     expect(service.decodeFromPropertiesFormat("c''est qu''un exemple")).toBe("c'est qu'un exemple");
   });
 
+  it('suppression des accents', () => {
+    expect(service.removeAccent("Bonjour")).toBe("Bonjour");
+    expect(service.removeAccent("àéèùôïÿç")).toBe("aeeuoiyc");
+    expect(service.removeAccent("ÀÉÈÙÔÏŸÇ")).toBe("AEEUOIYC");
+    expect(service.removeAccent("abc123_:;XX$€")).toBe("abc123_:;XX$€");
+  });
+
+  it('json non formate', () => {
+    expect(service.jsonNonFormate('{"abc":123,\n"aaa":\n"bbb"}')).toBe('{"abc":123,"aaa":"bbb"}');
+  });
+
 });
