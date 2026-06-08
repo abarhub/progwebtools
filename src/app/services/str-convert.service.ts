@@ -186,4 +186,20 @@ export class StrConvertService {
     return result;
   }
 
+  /**
+   * Supprime les accents d'une chaîne de caractères
+   * @param str la chaine ou il faut enlever les accents
+   */
+  public removeAccent(str:string):string {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  /**
+   * Formate un json non formaté
+   * @param str le json non formaté
+   */
+  public jsonNonFormate(str:string):string {
+    return JSON.stringify(JSON.parse(str));
+  }
+
 }

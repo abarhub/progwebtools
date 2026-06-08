@@ -17,7 +17,7 @@ export class ConversionComponent implements OnInit, PageInterface {
 
   langages: string[] = ["json", "str -> base64", "base64 -> str", "yml -> properties", "epoch -> datetime", "datetime -> millisecondes", "jwt",
     "\\ -> /", "/ -> \\", "\\ -> \\\\", "\\\\ -> \\", "encode url", "encode paramètre url", "encode html", "decode html",
-    "encode properties", "decode properties"];
+    "encode properties", "decode properties","remove accents","json non formaté"];
   registrationForm: UntypedFormGroup = this.fb.group({texte: [''], texteResultat: ['']});
   texte: string = '';
   texteResultat: string = '';
@@ -106,6 +106,14 @@ export class ConversionComponent implements OnInit, PageInterface {
       } else if (langageSelect == this.langages[16]) {
         let s = this.registrationForm.get('texte')?.value;
         s = this.strConvertService.decodeFromPropertiesFormat(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[17]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.removeAccent(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[18]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.jsonNonFormate(s);
         this.texteResultat = s;
       }
     }
