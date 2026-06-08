@@ -191,7 +191,7 @@ export class StrConvertService {
    * @param str la chaine ou il faut enlever les accents
    */
   public removeAccent(str:string):string {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return str.normalize("NFD").replaceAll(/[\u0300-\u036f]/g, "");
   }
 
   /**
