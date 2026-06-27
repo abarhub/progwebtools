@@ -59,3 +59,9 @@ Ensuite il faut lancer les tests unitaires avec la commande :
  ```shell
 npm run test_no_ui
 ```
+
+* Monter la version du projet
+
+Pour monter la version du projet, il faut monter la version dans le fichier package.json, index.html et changelog.md.
+
+

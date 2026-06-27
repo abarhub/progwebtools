@@ -1,3 +1,8 @@
+# version 1.11.0 (27/06/2026)
+* ajout de renovate
+* mise à jour des composants
+* ajout des outils de conversion (vers camelCase, vers UPPER_CASE, vers snake_case, vers kebab-case)
+
 # version 1.10.0 (08/06/2026)
 * outils de conversion (json non formaté, suppression accents)
 * passage à angular 22
