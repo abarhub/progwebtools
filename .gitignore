@@ -49,3 +49,4 @@ justfile
 .scannerwork/
 sonar-project.properties
 
+.env
