@@ -120,7 +120,7 @@ export class StrConvertService {
    * Décode une chaîne au format .properties Java vers du texte normal
    * Convertit les séquences Unicode \uXXXX en caractères réels
    */
-  public decodeFromPropertiesFormat(str:string):string {
+  public decodeFromPropertiesFormat(str: string): string {
     let result = '';
     let i = 0;
 
@@ -190,7 +190,7 @@ export class StrConvertService {
    * Supprime les accents d'une chaîne de caractères
    * @param str la chaine ou il faut enlever les accents
    */
-  public removeAccent(str:string):string {
+  public removeAccent(str: string): string {
     return str.normalize("NFD").replaceAll(/[\u0300-\u036f]/g, "");
   }
 
@@ -198,8 +198,140 @@ export class StrConvertService {
    * Formate un json non formaté
    * @param str le json non formaté
    */
-  public jsonNonFormate(str:string):string {
+  public jsonNonFormate(str: string): string {
     return JSON.stringify(JSON.parse(str));
+  }
+
+  /**
+   * découpe une chaine de caractères en mots
+   * @param str la chaine à découper
+   */
+  public decoupeMots(str: string): string[] {
+    let listeMots = [];
+    let motCourant = '';
+    str = str.normalize("NFD")                  // Décompose les caractères accentués
+      .replace(/[\u0300-\u036f]/g, "");  // Supprime les accents
+    for (let i = 0; i < str.length; i++) {
+      if (this.finMot(str, i)) {
+        if (motCourant !== '') {
+          listeMots.push(motCourant);
+          motCourant = '';
+        }
+      } else if (this.finMotCamelCase(str, i)) {
+        if (motCourant !== '') {
+          listeMots.push(motCourant);
+          motCourant = '';
+        }
+        motCourant = str[i];
+      } else {
+        motCourant += str[i];
+      }
+    }
+    if (motCourant !== '') {
+      listeMots.push(motCourant);
+    }
+    return listeMots;
+  }
+
+  /**
+   * détecte si le caractère à l'indice i est la fin d'un mot
+   * par exemple :
+   * "un Test SIMPLE",0 => false
+   * "un Test SIMPLE",1 => false
+   * "un Test SIMPLE",2 => true
+   * @param str la chaine de caractères
+   * @param i la position dans le mot à tester
+   */
+  public finMot(str: string, i: number): boolean {
+    if (i >= 0 && i < str.length) {
+      if (!str[i].match(/[a-zA-Z0-9]/)) {
+        // les mots avec séparateur : un Test SIMPLE
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * détecte si le caractère à l'indice i est la fin d'un mot en camelCase
+   * par exemple :
+   * "unTestSimple",0 => false
+   * "unTestSimple",1 => false
+   * "unTestSimple",2 => true
+   * @param str la chaine de caractères
+   * @param i la position dans le mot à tester
+   */
+  public finMotCamelCase(str: string, i: number): boolean {
+    if (i >= 0 && i < str.length) {
+      if (i - 1 >= 0
+        && str[i - 1].match(/[a-z]/)
+        && str[i].match(/[A-Z]/)) {
+        // pour les mots en camelcase : unTestSimple
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Convertit une chaîne de caractères en camelCase
+   * @param str la chaîne à convertir
+   */
+  public versCamelCase(str: string): string {
+    let mots = this.decoupeMots(str);
+    let resultat = '';
+    for (let i = 0; i < mots.length; i++) {
+      if (i === 0) {
+        resultat += mots[i].toLowerCase();
+      } else {
+        resultat += mots[i].charAt(0).toUpperCase() + mots[i].slice(1).toLowerCase();
+      }
+    }
+    return resultat;
+  }
+
+  /**
+   * Convertit une chaîne de caractères en UPPER_CASE
+   * @param str la chaîne à convertir
+   */
+  public versUpperCase(str: string): string {
+    let mots = this.decoupeMots(str);
+    let resultat = '';
+    for (let i = 0; i < mots.length; i++) {
+      if (resultat.length > 0) {
+        resultat += '_';
+      }
+      resultat += mots[i].toUpperCase();
+    }
+    return resultat;
+  }
+
+  /**
+   * convertit une chaine en snake_case
+   * @param str
+   */
+  public versSnakeCase(str: string): string {
+    let mots = this.decoupeMots(str);
+    let resultat = '';
+    for (let i = 0; i < mots.length; i++) {
+      if (resultat.length > 0) {
+        resultat += '_';
+      }
+      resultat += mots[i].toLowerCase();
+    }
+    return resultat;
+  }
+
+  public versKebabCase(str: string): string {
+    let mots = this.decoupeMots(str);
+    let resultat = '';
+    for (let i = 0; i < mots.length; i++) {
+      if (resultat.length > 0) {
+        resultat += '-';
+      }
+      resultat += mots[i].toLowerCase();
+    }
+    return resultat;
   }
 
 }

@@ -82,4 +82,76 @@ describe('StrConvertService', () => {
     expect(service.jsonNonFormate('{"abc":123,\n"aaa":\n"bbb"}')).toBe('{"abc":123,"aaa":"bbb"}');
   });
 
+  it('fin de mot', () => {
+    expect(service.finMot('un test simple', 0)).toBe(false);
+    expect(service.finMot('un test simple', 1)).toBe(false);
+    expect(service.finMot('un test simple', 2)).toBe(true);
+    expect(service.finMot('un test simple', 3)).toBe(false);
+    expect(service.finMot('un test simple', 4)).toBe(false);
+    expect(service.finMot('un test simple', 5)).toBe(false);
+    expect(service.finMot('un test simple', 6)).toBe(false);
+    expect(service.finMot('un test simple', 7)).toBe(true);
+    expect(service.finMot('un test simple', 20)).toBe(false);
+    expect(service.finMot('un test simple', -1)).toBe(false);
+  });
+
+  it('fin de mot camel case', () => {
+    expect(service.finMotCamelCase('unTestSimple', 0)).toBe(false);
+    expect(service.finMotCamelCase('unTestSimple', 1)).toBe(false);
+    expect(service.finMotCamelCase('unTestSimple', 2)).toBe(true);
+    expect(service.finMotCamelCase('unTestSimple', 3)).toBe(false);
+    expect(service.finMotCamelCase('unTestSimple', 4)).toBe(false);
+    expect(service.finMotCamelCase('unTestSimple', 5)).toBe(false);
+    expect(service.finMotCamelCase('unTestSimple', 6)).toBe(true);
+    expect(service.finMotCamelCase('unTestSimple', 7)).toBe(false);
+    expect(service.finMotCamelCase('unTestSimple', 20)).toBe(false);
+    expect(service.finMotCamelCase('unTestSimple', -1)).toBe(false);
+  });
+
+  it('découpage des mots', () => {
+    expect(service.decoupeMots('un test simple')).toEqual(['un', 'test', 'simple']);
+    expect(service.decoupeMots('un Test Simple')).toEqual(['un', 'Test', 'Simple']);
+    expect(service.decoupeMots('unTestSimple')).toEqual(['un', 'Test', 'Simple']);
+    expect(service.decoupeMots('un_Test_Simple')).toEqual(['un', 'Test', 'Simple']);
+    expect(service.decoupeMots('un_test_simple')).toEqual(['un', 'test', 'simple']);
+    expect(service.decoupeMots('un-test-simple')).toEqual(['un', 'test', 'simple']);
+    expect(service.decoupeMots('un-tést-simple')).toEqual(['un', 'test', 'simple']);
+  });
+
+  it('conversion en camelCase', () => {
+    expect(service.versCamelCase('un test simple')).toBe("unTestSimple");
+    expect(service.versCamelCase('un_test_simple')).toBe("unTestSimple");
+    expect(service.versCamelCase('UN_TEST_SIMPLE')).toBe("unTestSimple");
+    expect(service.versCamelCase('UN__TEST__SIMPLE')).toBe("unTestSimple");
+    expect(service.versCamelCase('UN  TEST  SIMPLE')).toBe("unTestSimple");
+    expect(service.versCamelCase('UN-TEST-SIMPLE')).toBe("unTestSimple");
+  });
+
+  it('conversion en UPPER_CASE', () => {
+    expect(service.versUpperCase('un test simple')).toBe("UN_TEST_SIMPLE");
+    expect(service.versUpperCase('unTestSimple')).toBe("UN_TEST_SIMPLE");
+    expect(service.versUpperCase('un-test-simple')).toBe("UN_TEST_SIMPLE");
+    expect(service.versUpperCase('un_test_simple')).toBe("UN_TEST_SIMPLE");
+    expect(service.versUpperCase('UN  TEST  SIMPLE')).toBe("UN_TEST_SIMPLE");
+    expect(service.versUpperCase('UN-TEST-SIMPLE')).toBe("UN_TEST_SIMPLE");
+  });
+
+  it('conversion en SNAKE_CASE', () => {
+    expect(service.versSnakeCase('un test simple')).toBe("un_test_simple");
+    expect(service.versSnakeCase('unTestSimple')).toBe("un_test_simple");
+    expect(service.versSnakeCase('un-test-simple')).toBe("un_test_simple");
+    expect(service.versSnakeCase('un_test_simple')).toBe("un_test_simple");
+    expect(service.versSnakeCase('UN  TEST  SIMPLE')).toBe("un_test_simple");
+    expect(service.versSnakeCase('UN-TEST-SIMPLE')).toBe("un_test_simple");
+  });
+
+  it('conversion en kebab-case', () => {
+    expect(service.versKebabCase('un test simple')).toBe("un-test-simple");
+    expect(service.versKebabCase('unTestSimple')).toBe("un-test-simple");
+    expect(service.versKebabCase('un-test-simple')).toBe("un-test-simple");
+    expect(service.versKebabCase('un_test_simple')).toBe("un-test-simple");
+    expect(service.versKebabCase('UN  TEST  SIMPLE')).toBe("un-test-simple");
+    expect(service.versKebabCase('UN-TEST-SIMPLE')).toBe("un-test-simple");
+  });
+
 });

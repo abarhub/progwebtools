@@ -18,7 +18,8 @@ export class ConversionComponent implements OnInit, PageInterface {
 
   langages: string[] = ["json", "str -> base64", "base64 -> str", "yml -> properties", "epoch -> datetime", "datetime -> millisecondes", "jwt",
     "\\ -> /", "/ -> \\", "\\ -> \\\\", "\\\\ -> \\", "encode url", "encode paramètre url", "encode html", "decode html",
-    "encode properties", "decode properties","remove accents","json non formaté"];
+    "encode properties", "decode properties", "remove accents", "json non formaté", "-> camelCase", "-> UPPER_CASE",
+    "-> snake_case", "-> kebab-case"];
   registrationForm: UntypedFormGroup = this.fb.group({texte: [''], texteResultat: ['']});
   texte: string = '';
   texteResultat: string = '';
@@ -115,6 +116,22 @@ export class ConversionComponent implements OnInit, PageInterface {
       } else if (langageSelect == this.langages[18]) {
         let s = this.registrationForm.get('texte')?.value;
         s = this.strConvertService.jsonNonFormate(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[19]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.versCamelCase(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[20]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.versUpperCase(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[21]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.versSnakeCase(s);
+        this.texteResultat = s;
+      } else if (langageSelect == this.langages[22]) {
+        let s = this.registrationForm.get('texte')?.value;
+        s = this.strConvertService.versKebabCase(s);
         this.texteResultat = s;
       }
     }
