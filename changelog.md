@@ -1,3 +1,6 @@
+# version 1.12.0 (29/07/2026)
+* monté de version d'angular en 22.0.8
+
 # version 1.11.0 (27/06/2026)
 * ajout de renovate
 * mise à jour des composants
