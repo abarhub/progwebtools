@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
-    "sonar": "sonar-scanner"
+    "sonar": "sonar-scanner-npm"
   },
   "private": true,
   "dependencies": {

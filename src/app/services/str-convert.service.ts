@@ -220,7 +220,6 @@ export class StrConvertService {
       } else if (this.finMotCamelCase(str, i)) {
         if (motCourant !== '') {
           listeMots.push(motCourant);
-          motCourant = '';
         }
         motCourant = str[i];
       } else {
@@ -297,11 +296,11 @@ export class StrConvertService {
   public versUpperCase(str: string): string {
     let mots = this.decoupeMots(str);
     let resultat = '';
-    for (let i = 0; i < mots.length; i++) {
+    for (let c of mots) {
       if (resultat.length > 0) {
         resultat += '_';
       }
-      resultat += mots[i].toUpperCase();
+      resultat += c.toUpperCase();
     }
     return resultat;
   }
@@ -313,11 +312,11 @@ export class StrConvertService {
   public versSnakeCase(str: string): string {
     let mots = this.decoupeMots(str);
     let resultat = '';
-    for (let i = 0; i < mots.length; i++) {
+    for (let c of mots) {
       if (resultat.length > 0) {
         resultat += '_';
       }
-      resultat += mots[i].toLowerCase();
+      resultat += c.toLowerCase();
     }
     return resultat;
   }
@@ -325,11 +324,11 @@ export class StrConvertService {
   public versKebabCase(str: string): string {
     let mots = this.decoupeMots(str);
     let resultat = '';
-    for (let i = 0; i < mots.length; i++) {
+    for (let c of mots) {
       if (resultat.length > 0) {
         resultat += '-';
       }
-      resultat += mots[i].toLowerCase();
+      resultat += c.toLowerCase();
     }
     return resultat;
   }
