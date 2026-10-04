@@ -23,7 +23,7 @@
     "@angular/material-luxon-adapter": "^22.0.6",
     "@angular/platform-browser": "^22.0.8",
     "@angular/platform-browser-dynamic": "^22.0.8",
-    "@angular/router": "^22.0.8",
+    "@angular/router": "^22.2.0",
     "@types/js-yaml": "^4.0.9",
     "file-saver": "^2.0.5",
     "js-yaml": "^4.3.0",
